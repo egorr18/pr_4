@@ -1,0 +1,44 @@
+(1)
+first_name = input("Введіть ім'я: ")
+last_name = input("Введіть прізвище: ")
+age = float(input("Введіть вік: "))
+city = input("Введіть місто: ")
+formatted_sentence = f"{first_name:<10} {last_name} {age:.2f} {city:>15}"
+print(formatted_sentence)
+
+
+(2)
+n = int(input("Введіть кількість товарів: "))
+
+print("{:<20} {:>10} {:^8}".format("Назва товару", "Ціна", "Кількість"))
+print("-" * 38)  
+
+for _ in range(n):
+    name = input("Введіть назву товару: ")
+    price = float(input("Введіть ціну товару: "))
+    quantity = int(input("Введіть кількість товару: "))
+
+    print("{:<20} {:>10.2f} {:^8}".format(name, price, quantity))
+
+
+(3)
+students = [
+    {"name": "Олександр", "average_grade": 4.5, "attendance": 90},
+    {"name": "Ірина", "average_grade": 3.8, "attendance": 85},
+    {"name": "Дмитро", "average_grade": 4.2, "attendance": 92},
+    {"name": "Марина", "average_grade": 4.0, "attendance": 88},
+]
+
+total_grade = sum(student["average_grade"] for student in students)
+average_grade_group = total_grade / len(students)
+
+print("Звіт по студентам групи")
+print("-" * 50)  
+print("{:<20} {:^15} {:^15}".format("Ім'я студента", "Середній бал", "Відсоток відвідувань"))
+print("-" * 50) 
+
+for student in students:
+    print("{:<20} {:^15.2f} {:^15}".format(student["name"], student["average_grade"], student["attendance"]))
+
+print("-" * 50)
+print("{:<20} {:^15.2f} {:^15}".format("Середній бал по групі", average_grade_group, "-"))
